@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Md Musfizur Hassan, PhD | Functional Peptide Design</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+        /* Custom Styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0a192f;
+            /* Deep Navy Blue */
+            color: #ccd6f6;
+            /* Light Slate */
+        }
+
+        .accent-color {
+            color: #64ffda;
+            /* Bright Teal */
+        }
+
+        .bg-accent {
+            background-color: #64ffda;
+        }
+
+        .border-accent {
+            border-color: #64ffda;
+        }
+
+        .hero-bg {
+            position: relative;
+            overflow: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass-card {
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(100, 255, 218, 0.5);
+        }
+
+        .sticky-nav {
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            background: rgba(10, 25, 47, 0.85);
+            backdrop-filter: blur(10px);
+            transition: top 0.3s;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div id="particles-js"></div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky-nav shadow-lg">
+        <div class="container mx-auto px-6 py-4">
+            <div class="flex items-center justify-between">
+                <div>
+                    <a href="#" class="text-2xl font-bold accent-color">Md Musfizur Hassan, PhD</a>
+                </div>
+                <nav class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-gray-300 hover:accent-color transition duration-300">About</a>
+                    <a href="#services" class="text-gray-300 hover:accent-color transition duration-300">Services</a>
+                    <a href="#expertise" class="text-gray-300 hover:accent-color transition duration-300">Expertise</a>
+                    <a href="#contact" class="text-gray-300 hover:accent-color transition duration-300">Contact</a>
+                </nav>
+                <div class="md:hidden">
+                    <!-- Mobile Menu Button -->
+                    <button id="mobile-menu-button" class="text-white focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+            <!-- Mobile Menu -->
+            <div id="mobile-menu" class="hidden md:hidden mt-4">
+                <a href="#about" class="block py-2 text-gray-300 hover:accent-color">About</a>
+                <a href="#services" class="block py-2 text-gray-300 hover:accent-color">Services</a>
+                <a href="#expertise" class="block py-2 text-gray-300 hover:accent-color">Expertise</a>
+                <a href="#contact" class="block py-2 text-gray-300 hover:accent-color">Contact</a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="about" class="hero-bg min-h-screen flex items-center">
+
+            <div class="hero-content container mx-auto px-6 py-16 md:py-24" data-aos="fade-up">
+                <div class="flex flex-col md:flex-row items-center gap-12">
+                    <!-- Image Column -->
+                    <div class="w-full md:w-1/3 flex justify-center">
+                        <div class="relative w-64 h-64 md:w-80 md:h-80">
+                            <div class="absolute inset-0 rounded-full border-2 border-accent opacity-50 animate-pulse">
+                            </div>
+                            <img src="profile_photo.jpg" alt="Professional headshot of the scientist"
+                                class="rounded-full w-full h-full object-cover shadow-2xl border-4 border-gray-800">
+                        </div>
+                    </div>
+                    <!-- Text Column -->
+                    <div class="w-full md:w-2/3 text-center md:text-left">
+                        <p class="text-lg accent-color mb-2">Dr Md Musfizur Hassan</p>
+                        <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4">Pioneering Functional
+                            Peptide Design</h1>
+                        <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto md:mx-0">
+                            Leveraging over 10 years of experience in chemical biology and synthetic chemistry to
+                            deliver innovative peptide solutions for therapeutic and research applications.
+                        </p>
+                        <a href="#contact"
+                            class="bg-accent text-gray-900 font-bold py-3 px-8 rounded-md hover:bg-opacity-80 transition duration-300 text-lg">
+                            Discuss Your Project
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-20 bg-gray-900/50" data-aos="fade-up">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Services</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-12"></div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <!-- Service Card A -->
+                    <div class="glass-card p-8 rounded-lg text-left" data-aos="fade-up" data-aos-delay="100">
+                        <h3 class="text-2xl font-bold accent-color mb-4">Peptides Synthesis</h3>
+                        <ul class="text-gray-400 list-disc list-inside space-y-2">
+                            <li>Small, medium, and large-scale customised peptide production as per requirement.</li>
+                            <li>Modified/Cyclic/PEGylated and Biotin Conjugated peptides</li>
+                            <li>Peptide-based Drug Discovery</li>
+                            <li>Peptides/Protein Purification.</li>
+                            <li>Peptides/Protein Quantification.</li>
+                        </ul>
+                    </div>
+                    <!-- Service Card B -->
+                    <div class="glass-card p-8 rounded-lg text-left" data-aos="fade-up" data-aos-delay="200">
+                        <h3 class="text-2xl font-bold accent-color mb-4">Analytical Method development</h3>
+                        <ul class="text-gray-400 list-disc list-inside space-y-2">
+                            <li>HPLC method development/Sample analysis</li>
+                            <li>Existing/New molecules.</li>
+                            <li>Insoluble/delicate molecules.</li>
+                            <li>Biological samples.</li>
+                            <li>Phase I, II, III clinical studies.</li>
+                        </ul>
+                    </div>
+                    <!-- Service Card C -->
+                    <div class="glass-card p-8 rounded-lg text-left" data-aos="fade-up" data-aos-delay="300">
+                        <h3 class="text-2xl font-bold accent-color mb-4">Lipid Nanoparticles</h3>
+                        <ul class="text-gray-400 list-disc list-inside space-y-2">
+                            <li>Lipid-based nanoparticle formulation for gene /mRNA /drug molecules.</li>
+                            <li>Novel peptide-based drug delivery systems for localised dosage and controlled release.
+                            </li>
+                            <li>Pharmaceutical formulation and dosage form design.</li>
+                            <li>Targeted Drug Delivery/CMC analysis</li>
+                        </ul>
+                    </div>
+                    <!-- Service Card D -->
+                    <div class="glass-card p-8 rounded-lg text-left" data-aos="fade-up" data-aos-delay="400">
+                        <h3 class="text-2xl font-bold accent-color mb-4">Peptide-based biomaterials</h3>
+                        <ul class="text-gray-400 list-disc list-inside space-y-2">
+                            <li>2D/3D Scaffold Biomaterial.</li>
+                            <li>Regenerative medicine.</li>
+                            <li>Peptide-based hydrogel for cells/stem cell delivery.</li>
+                            <li>Hybrid hydrogels for neuron growth application for dementia/Schizophrenia.</li>
+                            <li>Antimicrobial peptides.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Expertise Section -->
+        <section id="expertise" class="py-20" data-aos="fade-up">
+            <div class="container mx-auto px-6 text-center">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Proven Expertise</h2>
+                <div class="w-20 h-1 bg-accent mx-auto mb-12"></div>
+                <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
+                    <div class="p-4">
+                        <p class="text-5xl font-black accent-color">10+</p>
+                        <p class="text-lg text-gray-400 mt-2">Years of Experience</p>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-5xl font-black accent-color">30+</p>
+                        <p class="text-lg text-gray-400 mt-2">Peer-Reviewed Publications</p>
+                    </div>
+                    <div class="p-4">
+                        <p class="text-5xl font-black accent-color">2</p>
+                        <p class="text-lg text-gray-400 mt-2">Patented Technologies</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-20 bg-gray-900/50" data-aos="fade-up">
+            <div class="container mx-auto px-6 text-center max-w-3xl">
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Advance Your Research?</h2>
+                <p class="text-lg text-gray-400 mb-8">
+                    Let's collaborate! I am currently available for consulting and contract research projects. Reach out
+                    to discuss how I can help you achieve your scientific or business goals.
+                </p>
+                <div class="flex flex-col md:flex-row justify-center gap-4">
+                    <a href="mailto:mhassan@cmri.org.au"
+                        class="flex items-center justify-center gap-2 bg-transparent border-2 border-accent text-accent font-bold py-3 px-8 rounded-md hover:bg-accent/10 hover:shadow-[0_0_20px_rgba(100,255,218,0.4)] hover:-translate-y-1 transition duration-300 text-lg">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                        Email
+                    </a>
+                    <a href="https://au.linkedin.com/in/md-musfizur-hassan-phd-97a3a629" target="_blank"
+                        class="flex items-center justify-center gap-2 bg-transparent border-2 border-accent text-accent font-bold py-3 px-8 rounded-md hover:bg-accent/10 hover:shadow-[0_0_20px_rgba(100,255,218,0.4)] hover:-translate-y-1 transition duration-300 text-lg">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900/50 py-8">
+        <div class="container mx-auto px-6 text-center text-gray-500">
+            <p>&copy; 2025 Dr. Musfizur Hassan. All rights reserved. Designed by PixBio</p>
+
+        </div>
+    </footer>
+
+    <!-- Particle.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 1000,
+            once: true,
+        });
+
+        // Particle.js configuration
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#64ffda"
+                },
+                "shape": {
+                    "type": "circle",
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": true,
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.1,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 1,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "repulse": {
+                        "distance": 100,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+
+</body>
+
+</html>

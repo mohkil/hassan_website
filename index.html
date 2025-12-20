@@ -1,269 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Md Musfizur Hassan, PhD | Functional Peptide Design</title>
+    <title>Design Concepts | Dr. Md Musfizur Hassan</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
-        /* Custom Styles */
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #0a192f; /* Deep Navy Blue */
-            color: #ccd6f6; /* Light Slate */
-        }
-        .accent-color {
-            color: #64ffda; /* Bright Teal */
-        }
-        .bg-accent {
-            background-color: #64ffda;
-        }
-        .border-accent {
-            border-color: #64ffda;
-        }
-        .hero-bg {
-            position: relative;
+            background-color: #0f172a;
+            color: #ffffff;
             overflow: hidden;
         }
-        #particles-js {
+
+        /* Ambient Background */
+        .ambient-bg {
             position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            z-index: 0;
+            inset: 0;
+            background: radial-gradient(circle at 50% 0%, #1e293b 0%, #020617 70%);
+            z-index: -2;
         }
-        .hero-content {
-            position: relative;
-            z-index: 1;
+
+        .ambient-glow {
+            position: absolute;
+            top: -20%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80vw;
+            height: 80vw;
+            background: radial-gradient(circle, rgba(100, 255, 218, 0.05) 0%, transparent 70%);
+            z-index: -1;
+            pointer-events: none;
         }
-        .glass-card {
-            background: rgba(10, 25, 47, 0.85);
+
+        /* Card Styles */
+        .option-card {
+            transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            background: rgba(255, 255, 255, 0.02);
             backdrop-filter: blur(10px);
-            border: 1px solid rgba(100, 255, 218, 0.1);
-            transition: all 0.3s ease;
         }
-        .glass-card:hover {
+
+        .option-card:hover {
             transform: translateY(-5px);
-            border-color: rgba(100, 255, 218, 0.5);
+            background: rgba(255, 255, 255, 0.04);
+            border-color: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
-        .sticky-nav {
-            position: sticky;
-            top: 0;
-            z-index: 50;
-            background: rgba(10, 25, 47, 0.85);
-            backdrop-filter: blur(10px);
-            transition: top 0.3s;
+
+        .card-tag {
+            font-size: 0.7rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            font-weight: 600;
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            margin-bottom: 1.5rem;
+        }
+
+        /* Tag Colors */
+        .tag-classic {
+            background: rgba(100, 255, 218, 0.1);
+            color: #64ffda;
+            border: 1px solid rgba(100, 255, 218, 0.2);
+        }
+
+        .tag-modern {
+            background: rgba(255, 255, 255, 0.1);
+            color: #ffffff;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .tag-kinetic {
+            background: rgba(239, 68, 68, 0.1);
+            color: #ef4444;
+            border: 1px solid rgba(239, 68, 68, 0.2);
+        }
+
+        .btn-action {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            width: 100%;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            margin-top: auto;
+        }
+
+        .btn-classic {
+            background: transparent;
+            border: 1px solid #64ffda;
+            color: #64ffda;
+        }
+
+        .btn-classic:hover {
+            background: rgba(100, 255, 218, 0.1);
+        }
+
+        .btn-modern {
+            background: #ffffff;
+            border: 1px solid #ffffff;
+            color: #000000;
+        }
+
+        .btn-modern:hover {
+            background: rgba(255, 255, 255, 0.9);
+            transform: scale(1.02);
+        }
+
+        .btn-kinetic {
+            background: transparent;
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
+
+        .btn-kinetic:hover {
+            background: rgba(239, 68, 68, 0.1);
+            box-shadow: 0 0 15px rgba(239, 68, 68, 0.3);
         }
     </style>
 </head>
-<body class="antialiased">
 
-    <!-- Header / Navigation -->
-    <header class="sticky-nav shadow-lg">
-        <div class="container mx-auto px-6 py-4">
-            <div class="flex items-center justify-between">
-                <div>
-                    <a href="#" class="text-2xl font-bold accent-color">Md Musfizur Hassan, PhD</a>
-                </div>
-                <nav class="hidden md:flex space-x-8">
-                    <a href="#about" class="text-gray-300 hover:accent-color transition duration-300">About</a>
-                    <a href="#services" class="text-gray-300 hover:accent-color transition duration-300">Services</a>
-                    <a href="#expertise" class="text-gray-300 hover:accent-color transition duration-300">Expertise</a>
-                    <a href="#contact" class="text-gray-300 hover:accent-color transition duration-300">Contact</a>
-                </nav>
-                <div class="md:hidden">
-                    <!-- Mobile Menu Button -->
-                    <button id="mobile-menu-button" class="text-white focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
-                    </button>
-                </div>
-            </div>
-            <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4">
-                <a href="#about" class="block py-2 text-gray-300 hover:accent-color">About</a>
-                <a href="#services" class="block py-2 text-gray-300 hover:accent-color">Services</a>
-                <a href="#expertise" class="block py-2 text-gray-300 hover:accent-color">Expertise</a>
-                <a href="#contact" class="block py-2 text-gray-300 hover:accent-color">Contact</a>
-            </div>
-        </div>
+<body class="min-h-screen flex flex-col items-center justify-center p-6 selection:bg-teal-500 selection:text-white">
+
+    <div class="ambient-bg"></div>
+    <div class="ambient-glow"></div>
+
+    <header class="text-center mb-16 max-w-2xl mx-auto animate-[fadeIn_1s_ease-out]">
+        <h1 class="text-3xl md:text-4xl font-light text-white mb-4 tracking-tight">
+            Website Design Concepts
+        </h1>
+        <p class="text-slate-400 text-lg font-light leading-relaxed">
+            Please review the available website options below. <br class="hidden md:block">Click on a card to preview
+            the live design.
+        </p>
     </header>
 
-    <main>
-        <!-- Hero Section -->
-        <section id="about" class="hero-bg min-h-screen flex items-center">
-            <div id="particles-js"></div>
-            <div class="hero-content container mx-auto px-6 py-16 md:py-24">
-                <div class="flex flex-col md:flex-row items-center gap-12">
-                    <!-- Image Column -->
-                    <div class="w-full md:w-1/3 flex justify-center">
-                        <div class="relative w-64 h-64 md:w-80 md:h-80">
-                            <div class="absolute inset-0 rounded-full border-2 border-accent opacity-50 animate-pulse"></div>
-                            <img src="image.jpg" alt="Professional headshot of the scientist" class="rounded-full w-full h-full object-cover shadow-2xl border-4 border-gray-800">
-                        </div>
-                    </div>
-                    <!-- Text Column -->
-                    <div class="w-full md:w-2/3 text-center md:text-left">
-                        <p class="text-lg accent-color mb-2">Dr Md Musfizur Hassan</p>
-                        <h1 class="text-4xl md:text-6xl font-black text-white leading-tight mb-4">Pioneering Functional Peptide Design</h1>
-                        <p class="text-lg text-gray-400 mb-8 max-w-2xl mx-auto md:mx-0">
-                            Leveraging over 10 years of experience in chemical biology and synthetic chemistry to deliver innovative peptide solutions for therapeutic and research applications.
-                        </p>
-                        <a href="#contact" class="bg-accent text-gray-900 font-bold py-3 px-8 rounded-md hover:bg-opacity-80 transition duration-300 text-lg">
-                            Discuss Your Project
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+    <main class="grid grid-cols-1 md:grid-cols-3 gap-8 w-full max-w-7xl">
 
-        <!-- Services Section -->
-        <section id="services" class="py-20 bg-gray-900/50">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Core Services</h2>
-                <div class="w-20 h-1 bg-accent mx-auto mb-12"></div>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                    <!-- Service Card 1 -->
-                    <div class="glass-card p-8 rounded-lg text-left">
-                        <h3 class="text-2xl font-bold accent-color mb-4">Custom Peptide Synthesis</h3>
-                        <p class="text-gray-400">High-purity synthesis of custom peptides with a wide range of modifications, tailored to your exact specifications for research, diagnostic, or therapeutic use.</p>
-                    </div>
-                    <!-- Service Card 2 -->
-                    <div class="glass-card p-8 rounded-lg text-left">
-                        <h3 class="text-2xl font-bold accent-color mb-4">Computational Modeling</h3>
-                        <p class="text-gray-400">Utilizing advanced in-silico methods for peptide structure prediction, molecular docking, and dynamics simulation to guide rational design and optimization.</p>
-                    </div>
-                    <!-- Service Card 3 -->
-                    <div class="glass-card p-8 rounded-lg text-left">
-                        <h3 class="text-2xl font-bold accent-color mb-4">Peptide Library Design</h3>
-                        <p class="text-gray-400">Strategic design and synthesis of diverse or focused peptide libraries for high-throughput screening, target validation, and lead discovery.</p>
-                    </div>
-                </div>
+        <!-- Option A -->
+        <a href="old-website/index.html" class="option-card rounded-2xl p-8 md:p-10 flex flex-col group h-full">
+            <div class="card-tag tag-classic">Option A</div>
+            <h2 class="text-2xl font-semibold text-white mb-3">Classic Design</h2>
+            <p class="text-slate-400 leading-relaxed mb-8 flex-grow">
+                The established design featuring a deep navy color palette, teal accents, and particle network
+                animations.
+            </p>
+            <div class="mt-4">
+                <span class="btn-action btn-classic">
+                    View Classic Version
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                </span>
             </div>
-        </section>
+        </a>
 
-        <!-- Expertise Section -->
-        <section id="expertise" class="py-20">
-            <div class="container mx-auto px-6 text-center">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Proven Expertise</h2>
-                <div class="w-20 h-1 bg-accent mx-auto mb-12"></div>
-                <div class="max-w-4xl mx-auto grid grid-cols-1 sm:grid-cols-3 gap-8 text-center">
-                    <div class="p-4">
-                        <p class="text-5xl font-black accent-color">10+</p>
-                        <p class="text-lg text-gray-400 mt-2">Years of Experience</p>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-5xl font-black accent-color">30+</p>
-                        <p class="text-lg text-gray-400 mt-2">Peer-Reviewed Publications</p>
-                    </div>
-                    <div class="p-4">
-                        <p class="text-5xl font-black accent-color">2</p>
-                        <p class="text-lg text-gray-400 mt-2">Patented Technologies</p>
-                    </div>
-                </div>
+        <!-- Option B -->
+        <a href="variant-b3-updated/index.html" class="option-card rounded-2xl p-8 md:p-10 flex flex-col group h-full">
+            <div class="card-tag tag-modern">Option B</div>
+            <h2 class="text-2xl font-semibold text-white mb-3">Modern Evolution</h2>
+            <p class="text-slate-400 leading-relaxed mb-8 flex-grow">
+                A contemporary redesign focusing on minimalism, frosted glass textures, and fluid micro-interactions.
+            </p>
+            <div class="mt-4">
+                <span class="btn-action btn-modern">
+                    View Modern Version
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
+                    </svg>
+                </span>
             </div>
-        </section>
+        </a>
 
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 bg-gray-900/50">
-            <div class="container mx-auto px-6 text-center max-w-3xl">
-                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Advance Your Research?</h2>
-                <p class="text-lg text-gray-400 mb-8">
-                    Let's collaborate. I am currently available for consulting and contract research projects. Reach out to discuss how my expertise in functional peptide design can help you achieve your scientific goals.
-                </p>
-                <a href="mailto:mhassan@cmri.org.au" class="bg-transparent border-2 border-accent text-accent font-bold py-3 px-8 rounded-md hover:bg-accent hover:text-gray-900 transition duration-300 text-lg">
-                    Get In Touch
-                </a>
+        <!-- Option C -->
+        <a href="variant-g2-flow/index.html" class="option-card rounded-2xl p-8 md:p-10 flex flex-col group h-full">
+            <div class="card-tag tag-kinetic">Option C</div>
+            <h2 class="text-2xl font-semibold text-white mb-3">Kinetic Flow</h2>
+            <p class="text-slate-400 leading-relaxed mb-8 flex-grow">
+                A high-fidelity variant featuring interactive particle trails, scroll-linked animations, and a rich dark
+                aesthetic.
+            </p>
+            <div class="mt-4">
+                <span class="btn-action btn-kinetic">
+                    View Kinetic Version
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </span>
             </div>
-        </section>
+        </a>
+
     </main>
 
-    <!-- Footer -->
-    <footer class="bg-gray-900/50 py-8">
-        <div class="container mx-auto px-6 text-center text-gray-500">
-            <p>&copy; 2025 Dr Md Musfizur Hassan. All Rights Reserved.</p>
-            <p class="mt-2">Connect on <a href="https://au.linkedin.com/in/md-musfizur-hassan-phd-97a3a629" class="underline hover:accent-color">LinkedIn</a></p>
-        </div>
+    <footer class="fixed bottom-6 text-slate-600 text-xs uppercase tracking-widest font-medium">
+        <p class="text-white/30 text-xs tracking-widest uppercase">&copy; 2025 Dr. Musfizur Hassan. All rights reserved.
+            Designed by PixBio</p>
     </footer>
 
-    <!-- Particle.js library -->
-    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
-    <script>
-        // Particle.js configuration
-        particlesJS('particles-js', {
-            "particles": {
-                "number": {
-                    "value": 80,
-                    "density": {
-                        "enable": true,
-                        "value_area": 800
-                    }
-                },
-                "color": {
-                    "value": "#64ffda"
-                },
-                "shape": {
-                    "type": "circle",
-                },
-                "opacity": {
-                    "value": 0.5,
-                    "random": true,
-                },
-                "size": {
-                    "value": 3,
-                    "random": true,
-                },
-                "line_linked": {
-                    "enable": true,
-                    "distance": 150,
-                    "color": "#ffffff",
-                    "opacity": 0.1,
-                    "width": 1
-                },
-                "move": {
-                    "enable": true,
-                    "speed": 1,
-                    "direction": "none",
-                    "random": false,
-                    "straight": false,
-                    "out_mode": "out",
-                    "bounce": false,
-                }
-            },
-            "interactivity": {
-                "detect_on": "canvas",
-                "events": {
-                    "onhover": {
-                        "enable": true,
-                        "mode": "repulse"
-                    },
-                    "onclick": {
-                        "enable": true,
-                        "mode": "push"
-                    },
-                    "resize": true
-                },
-                "modes": {
-                    "repulse": {
-                        "distance": 100,
-                        "duration": 0.4
-                    },
-                    "push": {
-                        "particles_nb": 4
-                    }
-                }
-            },
-            "retina_detect": true
-        });
-
-        // Mobile menu toggle
-        const mobileMenuButton = document.getElementById('mobile-menu-button');
-        const mobileMenu = document.getElementById('mobile-menu');
-        mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
-    </script>
-
 </body>
+
 </html>
