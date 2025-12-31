@@ -70,6 +70,69 @@
             backdrop-filter: blur(10px);
             transition: top 0.3s;
         }
+
+        /* Light Mode Styles - Premium Design */
+        body.light-mode {
+            background: linear-gradient(135deg, #f0f9ff 0%, #e0f2fe 100%);
+            color: #334155;
+        }
+
+        body.light-mode .text-white {
+            color: #0f172a !important;
+        }
+
+        body.light-mode .text-gray-300,
+        body.light-mode .text-gray-400,
+        body.light-mode .text-gray-500 {
+            color: #475569;
+        }
+
+        body.light-mode .glass-card {
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 30px -10px rgba(14, 165, 233, 0.1);
+        }
+
+        body.light-mode .glass-card:hover {
+            background: rgba(255, 255, 255, 0.9);
+            border-color: #0d9488;
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px -12px rgba(13, 148, 136, 0.2);
+        }
+
+        body.light-mode .sticky-nav {
+            background: rgba(255, 255, 255, 0.85);
+            border-bottom: 1px solid rgba(226, 232, 240, 0.6);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        body.light-mode .accent-color {
+            color: #0d9488;
+        }
+
+        body.light-mode .border-accent {
+            border-color: #0d9488;
+        }
+
+        body.light-mode .bg-accent {
+            background-color: #0d9488;
+            color: #ffffff;
+        }
+
+        /* Adjust particles visibility in light mode */
+        body.light-mode #particles-js canvas {
+            filter: invert(1) hue-rotate(180deg) contrast(1.2);
+            opacity: 0.7;
+        }
+
+        /* Enhanced Typography for Light Mode */
+        body.light-mode h1,
+        body.light-mode h2,
+        body.light-mode h3 {
+            color: #0f172a;
+            letter-spacing: -0.02em;
+        }
     </style>
 </head>
 
@@ -88,6 +151,23 @@
                     <a href="#services" class="text-gray-300 hover:accent-color transition duration-300">Services</a>
                     <a href="#expertise" class="text-gray-300 hover:accent-color transition duration-300">Expertise</a>
                     <a href="#contact" class="text-gray-300 hover:accent-color transition duration-300">Contact</a>
+                    <!-- Theme Toggle (Desktop) -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-white/10 transition-colors ml-2 focus:outline-none"
+                        aria-label="Toggle Dark Mode">
+                        <svg id="sun-icon" class="w-5 h-5 text-yellow-300" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <svg id="moon-icon" class="w-5 h-5 text-gray-800 hidden" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
                 </nav>
                 <div class="md:hidden">
                     <!-- Mobile Menu Button -->
@@ -101,7 +181,25 @@
                 </div>
             </div>
             <!-- Mobile Menu -->
-            <div id="mobile-menu" class="hidden md:hidden mt-4">
+            <div id="mobile-menu" class="hidden md:hidden mt-4 bg-gray-900/90 rounded-lg p-2 relative">
+                <div class="absolute top-2 right-2">
+                    <button id="mobile-theme-toggle"
+                        class="p-2 rounded-full hover:bg-white/10 transition-colors focus:outline-none"
+                        aria-label="Toggle Dark Mode">
+                        <svg class="w-5 h-5 text-yellow-300 sun-icon-mobile" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z">
+                            </path>
+                        </svg>
+                        <svg class="w-5 h-5 text-gray-800 hidden moon-icon-mobile" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z">
+                            </path>
+                        </svg>
+                    </button>
+                </div>
                 <a href="#about" class="block py-2 text-gray-300 hover:accent-color">About</a>
                 <a href="#services" class="block py-2 text-gray-300 hover:accent-color">Services</a>
                 <a href="#expertise" class="block py-2 text-gray-300 hover:accent-color">Expertise</a>
@@ -121,7 +219,7 @@
                         <div class="relative w-64 h-64 md:w-80 md:h-80">
                             <div class="absolute inset-0 rounded-full border-2 border-accent opacity-50 animate-pulse">
                             </div>
-                            <img src="profile_photo.jpg" alt="Professional headshot of the scientist"
+                            <img src="profile_photo.jpg" alt="Professional headshot of Md Musfizur Hassan"
                                 class="rounded-full w-full h-full object-cover shadow-2xl border-4 border-gray-800">
                         </div>
                     </div>
@@ -162,13 +260,13 @@
                     </div>
                     <!-- Service Card B -->
                     <div class="glass-card p-8 rounded-lg text-left" data-aos="fade-up" data-aos-delay="200">
-                        <h3 class="text-2xl font-bold accent-color mb-4">Analytical Method development</h3>
+                        <h3 class="text-2xl font-bold accent-color mb-4">Peptide-based biomaterials</h3>
                         <ul class="text-gray-400 list-disc list-inside space-y-2">
-                            <li>HPLC method development/Sample analysis</li>
-                            <li>Existing/New molecules.</li>
-                            <li>Insoluble/delicate molecules.</li>
-                            <li>Biological samples.</li>
-                            <li>Phase I, II, III clinical studies.</li>
+                            <li>2D/3D Scaffold Biomaterial.</li>
+                            <li>Regenerative medicine.</li>
+                            <li>Peptide-based hydrogel for cells/stem cell delivery.</li>
+                            <li>Hybrid hydrogels for neuron growth application for dementia/Schizophrenia.</li>
+                            <li>Antimicrobial peptides.</li>
                         </ul>
                     </div>
                     <!-- Service Card C -->
@@ -184,13 +282,13 @@
                     </div>
                     <!-- Service Card D -->
                     <div class="glass-card p-8 rounded-lg text-left" data-aos="fade-up" data-aos-delay="400">
-                        <h3 class="text-2xl font-bold accent-color mb-4">Peptide-based biomaterials</h3>
+                        <h3 class="text-2xl font-bold accent-color mb-4">Analytical Method development</h3>
                         <ul class="text-gray-400 list-disc list-inside space-y-2">
-                            <li>2D/3D Scaffold Biomaterial.</li>
-                            <li>Regenerative medicine.</li>
-                            <li>Peptide-based hydrogel for cells/stem cell delivery.</li>
-                            <li>Hybrid hydrogels for neuron growth application for dementia/Schizophrenia.</li>
-                            <li>Antimicrobial peptides.</li>
+                            <li>HPLC method development/Sample analysis</li>
+                            <li>Existing/New molecules.</li>
+                            <li>Insoluble/delicate molecules.</li>
+                            <li>Biological samples.</li>
+                            <li>Phase I, II, III clinical studies.</li>
                         </ul>
                     </div>
                 </div>
@@ -223,7 +321,7 @@
         <section id="contact" class="py-20 bg-gray-900/50" data-aos="fade-up">
             <div class="container mx-auto px-6 text-center max-w-3xl">
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Ready to Advance Your Research?</h2>
-                <p class="text-lg text-gray-400 mb-8">
+                <p class="text-lg text-black-400 mb-8">
                     Let's collaborate! I am currently available for consulting and contract research projects. Reach out
                     to discuss how I can help you achieve your scientific or business goals.
                 </p>
@@ -342,6 +440,64 @@
         mobileMenuButton.addEventListener('click', () => {
             mobileMenu.classList.toggle('hidden');
         });
+
+        // Theme Toggle Logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const mobileToggleBtn = document.getElementById('mobile-theme-toggle');
+        const sunIcon = document.getElementById('sun-icon');
+        const moonIcon = document.getElementById('moon-icon');
+        const sunIconMobile = document.querySelector('.sun-icon-mobile');
+        const moonIconMobile = document.querySelector('.moon-icon-mobile');
+
+        // Check local storage or system preference
+        function applyTheme() {
+            if (localStorage.theme === 'light' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                document.body.classList.add('light-mode');
+                updateIcons(true);
+            } else {
+                document.body.classList.remove('light-mode');
+                updateIcons(false);
+            }
+        }
+
+        applyTheme();
+
+        // Listen for system preference changes
+        window.matchMedia('(prefers-color-scheme: light)').addEventListener('change', (e) => {
+            if (!('theme' in localStorage)) {
+                if (e.matches) {
+                    document.body.classList.add('light-mode');
+                    updateIcons(true);
+                } else {
+                    document.body.classList.remove('light-mode');
+                    updateIcons(false);
+                }
+            }
+        });
+
+        function updateIcons(isLight) {
+            if (isLight) {
+                sunIcon.classList.add('hidden');
+                moonIcon.classList.remove('hidden');
+                if (sunIconMobile) sunIconMobile.classList.add('hidden');
+                if (moonIconMobile) moonIconMobile.classList.remove('hidden');
+            } else {
+                sunIcon.classList.remove('hidden');
+                moonIcon.classList.add('hidden');
+                if (sunIconMobile) sunIconMobile.classList.remove('hidden');
+                if (moonIconMobile) moonIconMobile.classList.add('hidden');
+            }
+        }
+
+        function toggleTheme() {
+            document.body.classList.toggle('light-mode');
+            const isLight = document.body.classList.contains('light-mode');
+            localStorage.theme = isLight ? 'light' : 'dark';
+            updateIcons(isLight);
+        }
+
+        if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
+        if (mobileToggleBtn) mobileToggleBtn.addEventListener('click', toggleTheme);
     </script>
 
 </body>
